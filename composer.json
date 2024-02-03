@@ -1,0 +1,11 @@
+{
+    "name": "heisenberg/vas-house-assessment",
+    "autoload": {
+        "psr-4": {
+            "Heisenberg\\VasHouseAssessment\\models\\": "src/models/"
+        }
+    },
+    "require": {
+        "twig/twig": "^3.8"
+    }
+}

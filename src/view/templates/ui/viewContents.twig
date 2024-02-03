@@ -1,0 +1,62 @@
+{# text search form #}
+<form method="get" action="">
+  {# hidden input named "url" with the value viewcontents. to retain the parameters #}
+  <input type="hidden" name="url" value="viewcontents">
+  <input type="text" name="query" placeholder="Search by content title">
+  <button type="submit" name"contentSearch">Search</button>
+</form>
+{# table view. contents #}
+<table class="table">
+  <thead class="thead">
+    <tr>
+      <th class="th">ID</th>
+      <th class="th">Content Title</th>
+      <th class="th">Category</th>
+      <th class="th">Added Date</th>
+      <th class="th">Added By</th>
+      <th class="th"> Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for content in viewContents %}
+      <tr>
+        <td class="td">{{ content.content_id }}</td>
+        <td class="td">{{ content.content_title }}</td>
+        <td class="td">{{ content.category }}</td>
+        <td class="td">{{ content.added_date }}</td>
+        <td class="td">{{ content.added_by }}</td>
+        {# delete #}
+        <td class="td">
+        {# submit delete form #}
+        <form action='' method="post" class="delete-form">
+          {# hidden input to retain the category id #} 
+          <input type="hidden" name='contentId' value={{content.content_id}}/>
+          <button type='submit' name="deleteContent" class="delete-category">DELETE &#10060; </button>
+        </form>  
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+   
+{# display pagination #}
+<div class='pagination' id='category-pagination'>
+
+{% if totalPages > 1 %}
+    <div class='pagination-sort' id="pagination-click">
+        {% if currentPage != 1 %}
+            <p class='first'><a href="{{ currentURL }}&page=1">First</a></p>
+            <p class='prev'><a href="{{ currentURL }}&page={{ currentPage - 1 }}">Previous</a></p>
+        {% endif %}
+        
+        {% for page in 1..totalPages %}
+            <p class="between"><a href="{{ currentURL }}&page={{ page }}">{{ page }}</a></p>
+        {% endfor %}
+        
+        {% if currentPage != totalPages %}
+            <p class='prev'><a href="{{ currentURL }}&page={{ currentPage + 1 }}">Next</a></p>
+            <p class='first'><a href="{{ currentURL }}&page={{ totalPages }}">Last</a></p>
+        {% endif %}
+    </div>
+{% endif %}
+</div>

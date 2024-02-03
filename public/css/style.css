@@ -1,0 +1,294 @@
+/* animation bacground */
+body {
+    margin: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background: linear-gradient(-45deg, #2f8b7c, #b9f7f0, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    overflow-x: hidden;
+    z-index: 0;
+    background-repeat: no-repeat;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* layout container*/
+.layout-container {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+/* log in and register page style */
+
+.login-register-page {
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+}
+
+.form-button {
+    margin: 1em;
+    width: 10em;
+    height: 3em;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px black;
+    cursor: pointer;
+    background-color: rgb(121, 184, 186);
+    color: black;
+    font-weight: bold;
+}
+
+.form-button:hover {
+    background-color: rgb(199, 248, 250);
+    border-radius: 2px;
+}
+
+.join-form {
+    /* background-color: white; */
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    gap: 1em;
+    padding: 2em;
+}
+
+input {
+    height: 3em;
+}
+
+#register-form {
+    display: none;
+}
+
+.clicked-button {
+    border-color: white;
+    background-color: rgb(166, 223, 225);
+}
+
+.error-message {
+    margin: 0;
+    color: red;
+}
+
+/* error message box for register and sign in process */
+#error-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    height: 10em;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 50%;
+    display: none;
+    background-color: rgba(233, 255, 254, 0.9);
+    border: 1px solid black;
+    padding: 1em;
+}
+
+#close-error-box {
+    width: 6em;
+}
+
+/* header (navbar) style*/
+.header-bar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: black;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1em;
+    left: 0;
+    z-index: 100;
+}
+
+.header-bar p,
+a {
+    margin: 1em;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#welcome-user {
+    color: white;
+}
+
+#logout {
+    cursor: pointer;
+    color: lightblue;
+    text-decoration: underline;
+}
+
+/* admin Template */
+.admin-container {
+    border: 1px solid black;
+    border-radius: 5px;
+    left: 0;
+    display: flex;
+    margin: 10px 15px;
+    padding: 0;
+
+}
+
+.left-column {
+    width: 25%;
+    background-color: azure;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.right-column {
+    width: 75%;
+    background-color: #f5fffe;
+    padding: 5em;
+    border-radius: 5px;
+}
+
+.main-click {
+    cursor: pointer;
+    margin: 5px 0;
+    background-color: rgb(155, 245, 234);
+}
+
+.main-noclick {
+    background-color: rgb(155, 245, 234);
+}
+
+.h3-style {
+    margin: 1em auto;
+    height: 2em;
+    margin-right: 10px;
+}
+
+.sub-click {
+    cursor: pointer;
+    margin-left: 15px;
+    padding: 2px;
+    background-color: rgb(179, 250, 253);
+}
+
+.dashboard-panel {
+    padding: 2em;
+    width: 80%;
+}
+
+/* add category and add content*/
+.add-category-panel {
+    /* display: none; */
+    background-color: rgba(233, 255, 254, 0.9);
+    padding: 2em;
+}
+
+.category-form {
+    background-color: azure;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 100%;
+    height: 25em;
+}
+
+.select-style {
+    height: 3em;
+}
+
+.submit-category {
+    height: 3em;
+    width: 35%;
+    margin: 2em;
+    background-color: #2f8b7c;
+    color: white;
+    box-shadow: 1px 1px 2px black;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.contentname{
+    height: 2.5em;
+}
+.text-area{
+    min-height: 4em;
+    resize: vertical;
+}
+.enabled{
+    height: 1em;
+    width: 1em;
+}
+
+/*  view categories table */
+.table {
+    border-collapse: collapse;
+    background-color: azure;
+    width: 90%;
+}
+.th, .td{
+    border: 2px solid black;
+    width: auto;
+    padding: 1em;
+}
+.delete-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.delete-category{
+    cursor: pointer;
+    background-color: transparent;
+}
+.pagination{
+    width: 100%;
+    height: 100%;
+    margin-top: 5em;
+}
+.pagination-sort{
+    display: flex;
+    flex-direction: row;
+}
+.first{
+    border: 1px solid black;
+    border-radius: 3px;
+    background-color: #23a6d5;
+}
+.prev{
+    border: 1px solid black;
+    border-radius: 3px;
+    background-color: #23d5ab;
+}
+.between{
+    border:1px solid black
+}
+/* responsive screen width style */
+@media only screen and (max-width: 1000px) {
+    .form-button {
+        width: 7em;
+    }
+
+    .join-form {
+        width: 70%;
+    }
+}

@@ -1,0 +1,9 @@
+{# google charts piechart view #}
+{# calculate categories and content lenght (count) #}
+<h3>DASHBOARD</h3>
+{% set numCategories = categories|length %}
+{% set numContents = contents|length %}
+<p id='categ-data' data-num-categories={{numCategories}}> categories: {{numCategories}} </p>
+<p id='cont-data' data-num-contents={{numContents}}> contents: {{numContents}} </p>
+{# chart draw div #}
+<div class="chart-draw" id="draw-chart"></div>

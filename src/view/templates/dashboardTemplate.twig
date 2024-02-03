@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title> dashboard </title>
+    <link type="text/css" rel="stylesheet" href='../public/css/style.css?v=6' />
+</head>
+
+<body>
+{# Main layout body container and contents #}
+<div class='layout-container'>
+<div class="header-container">
+{% include 'parts/header.twig' %}
+</div>
+<div class = "admin-container">
+    {# control pannel (select options) #}
+    <div class="left-column">
+        <h3 class="main-click h3-style" id='dashboard-panel'>&#10148; Dashboard &#10140;</h3>
+        <h3 class="main-noclick h3-style">&#10148; Categories  </h3>
+        <h3 class="sub-click h3-style" id="add-category-panel">- Add categories &#10140;</h3>
+        <h3 class="sub-click h3-style" id="view-category-panel">- View categories &#10140;</h3>
+        <h3 class= "main-noclick h3-style" >&#10148; Contents </h3>
+        <h3 class="sub-click h3-style" id="add-content-panel">- Add contents &#10140;</h3>
+        <h3 class="sub-click h3-style" id="view-content-panel">- View contents &#10140;</h3>
+    </div>
+    {# view section #}
+    <div class="right-column" >
+        {# dashboard view and chart #}
+        {# {% block chart %} {% endblock %} #}
+        {% if showChart %} 
+            {% include 'ui/PieChart.twig' %}
+        {% endif %}
+        {# </div> #}
+        {# add category view #}
+        {% if showAddCategory %}
+            {% include 'ui/addCategory.twig' %}
+        {% endif %}
+        {# view categories and search #}
+        {% if showViewCategories %}
+            {% include 'ui/viewCategories.twig' %}
+        {% endif %}
+        {# add content view #}
+        {% if showAddContent %}
+            {% include 'ui/addContent.twig' %}
+        {% endif %}
+        {# view content #}
+        {% if showviewContents %}
+            {% include 'ui/viewContents.twig' %}
+        {% endif %}
+    </div>
+</div>
+</div>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js?v=2"></script>
+<script type="text/javascript" src='../public/javaScript/dashboard.js?v=2'></script>
+</body>
+</html>

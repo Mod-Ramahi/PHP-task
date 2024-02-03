@@ -1,0 +1,43 @@
+{% extends 'layout.twig' %}
+{% block title %} login-register {% endblock %}
+{% block content %}
+<!-- container for login/register forms and elements-->
+    <div class="login-register-page">
+        <!--buttons to swithch between login form and register new user form-->  
+        <div class="select-form">
+            <button class="form-button clicked-button" id="login">Log in</button>
+            <button class="form-button" id="register">Register</button>
+        </div>
+        <!--login form-->
+        <form id="login-form" class="join-form" action="/VasHouseAssessment/public/index.php?url=loginRegister" method="post">
+            <h3>Log in</h3>
+            <label for="name-input-login">User name or Email:</label>
+            <input type="text" id="name-input" name="name-input-login" required>
+            <label for="password-input-login">Password:</label>
+            <input type="password" id="password-input" name="password-input-login" required>
+            <p id="password-validation-message" class="error-message"></p>
+            <button class="form-button" id="submit-login" type="submit" name="loginSubmit">Login</button>
+        </form>
+        <!--Register form-->
+        <form id="register-form" class="join-form" action="/VasHouseAssessment/public/index.php?url=loginRegister" method="post">
+            <h3>Register</h3>
+            <label for="register-name">Your new username:</label>
+            <input type="text" id="register-name-input" name="register-name" required>
+            <label for="register-email">Your new email:</label>
+            <input type="email" id="register-email-input" name="register-email" required>
+            <label for="register-password">New password</label>
+            <input type="password" id="register-password-1" name="register-password" required>
+            <p id="new-password-validation-message" class="error-message"></p>
+            <label for="register-password-repeat">Repeat your password</label>
+            <input type="password" id="register-password-2" name="register-password-repeat" required>
+            <button class="form-button" id="submit-register" type="submit" name="registerSubmit">Register</button>
+        </form>
+        <div id="error-box" class="test-box">
+            <h3 id='error-box-message'>test error message</h3>
+            <button id="close-error-box">Ok</button>
+        </div>
+    </div>
+    <!-- javascript file -->
+        <script src='../public/javaScript/app.js?v=5'></script>
+
+{% endblock %}

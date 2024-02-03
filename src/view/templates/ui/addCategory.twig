@@ -1,0 +1,28 @@
+
+    {# recrusion with macro to render categories tree for options drpdown #}
+    {% macro renderCategoryOptions(categoryTree, indentation = '') %}
+        {% for category in categoryTree %}
+            <option value="{{ category.id }}">{{ indentation }}{{ category.category_name }}</option>
+            {% if category.children is defined and category.children is not empty %}
+                    {{ _self.renderCategoryOptions(category.children, indentation ~ '-') }}
+            {% endif %}
+        {% endfor %}
+    {% endmacro %}
+    <h3>Add Category</h3>
+    
+    <form id='add-category-form' class="category-form" action="" method="post">
+        <label for="category-name"> Category name: </label>
+        <input type="text" id="category-name" name="category-name" minlength="3" maxlength="100" placeholder="min = 3 characters. max = 100" required>
+        <label>Select parent (optional):</label>
+        <select id="parent-category" name="parent-category" class="select-style" >
+            <option value="">No parent</option>
+            {# render categories recursively #}
+            {% if categoryTree is defined %}
+            {# <option>test option</option> #}
+                {{ _self.renderCategoryOptions(categoryTree) }}
+            {% else %}
+                <p>No categories found.</p>
+            {% endif %}
+        </select>
+        <button type="submit" class="submit-category" name="addCategorySubmit">Submit</button>
+    </form>
