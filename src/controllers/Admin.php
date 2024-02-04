@@ -12,7 +12,7 @@ class Admin
     public function __construct()
     {
         //twig paths
-        $loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '/../views');
+        $loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '/../view');
         $loader->addPath(__DIR__ . '/../../src/view/templates');
         $this->twig = new \Twig\Environment($loader);
 

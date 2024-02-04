@@ -25,7 +25,7 @@ class AuthController {
             }
         } 
         //configure twig paths, loader, and environment. And render the login/register template with Twig
-        $loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '/../views');
+        $loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '/../view');
         $loader->addPath(__DIR__ . '/../../src/view/templates');
         $twig = new \Twig\Environment($loader);
         echo $twig->render('ui/loginRegister.twig', ['variable' => 'value']);
